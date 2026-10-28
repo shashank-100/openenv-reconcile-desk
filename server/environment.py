@@ -20,13 +20,18 @@ RUNNER='/opt/reconcile-runner.py'
 
 def kill_uid(uid):
     if uid is None: return
-    for item in Path('/proc').iterdir():
-        if not item.name.isdecimal(): continue
-        try:
-            for line in (item/'status').read_text().splitlines():
-                if line.startswith('Uid:') and int(line.split()[1])==uid:
-                    os.kill(int(item.name),signal.SIGKILL)
-        except (OSError,ValueError,ProcessLookupError): pass
+    # Repeat snapshots to catch children forked while the first sweep runs.
+    for _ in range(4):
+        found=False
+        for item in Path('/proc').iterdir():
+            if not item.name.isdecimal(): continue
+            try:
+                for line in (item/'status').read_text().splitlines():
+                    if line.startswith('Uid:') and int(line.split()[1])==uid:
+                        found=True
+                        os.kill(int(item.name),signal.SIGKILL)
+            except (OSError,ValueError,ProcessLookupError): pass
+        if not found: break
 
 class ReconcileEnvironment(Environment):
     SUPPORTS_CONCURRENT_SESSIONS=True
