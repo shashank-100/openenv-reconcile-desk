@@ -1,0 +1,37 @@
+{
+  "dataset": "vibrantlabsai/pool-desk-v5",
+  "revision": "c5ea7ae8510fe2f01ee9c3154f6f6af0317bdead",
+  "task": "b1-uk-supplier-spend-02",
+  "files": {
+    "data/dbt_spend_feb2026.csv": {
+      "upstream_path": "tasks/office-white-collar/b1-uk-supplier-spend-02/data/dbt_spend_feb2026.csv",
+      "sha256": "73c731ecda0799417cdc069b64844eaa79d49103942e0648a936d7f9eebcec75",
+      "bytes": 71886
+    },
+    "data/defra_spend_feb2026.csv": {
+      "upstream_path": "tasks/office-white-collar/b1-uk-supplier-spend-02/data/defra_spend_feb2026.csv",
+      "sha256": "4b3fba5a112315a25fa9baa866b01ad74903ea9a41eea6512950979c9ee407ec",
+      "bytes": 266956
+    },
+    "data/dwp_spend_feb2026.csv": {
+      "upstream_path": "tasks/office-white-collar/b1-uk-supplier-spend-02/data/dwp_spend_feb2026.csv",
+      "sha256": "c7ce5ffd629c51b48739b7a60d2dff5019bde799dde41411b9d9fcd297f9e84e",
+      "bytes": 249705
+    },
+    "data/suppliers.txt": {
+      "upstream_path": "tasks/office-white-collar/b1-uk-supplier-spend-02/data/suppliers.txt",
+      "sha256": "ee3f241ff335e53de6a24f73dee7650026e313a9ddf6ffb0c4d24748b2c63de6",
+      "bytes": 182
+    },
+    "provenance.json": {
+      "upstream_path": "tasks/office-white-collar/b1-uk-supplier-spend-02/provenance.json",
+      "sha256": "62b7123a0a727d30467e87a1cecc0bf930e6e28ff7066ef5258938bbab6934e5",
+      "bytes": 1842
+    },
+    "LICENSES.md": {
+      "upstream_path": "LICENSES.md",
+      "sha256": "1c6ac20daa9ae3d1f0e60d36514bbe9d082ff8d33b89eb38894bc6ee4654c2b4",
+      "bytes": 10986
+    }
+  }
+}
