@@ -38,7 +38,7 @@ class ReconcileEnvironment(Environment):
     def reset(self,seed=None,episode_id=None,task_id=None,**kwargs):
         task_id=task_id or TASKS[0]
         if task_id not in TASKS: raise ValueError('Unknown task_id')
-        if not Path('/.dockerenv').exists() or os.getuid()!=0:
+        if not Path('/etc/reconcile-runtime').is_file() or os.getuid()!=0:
             raise RuntimeError('Run this environment in its Docker image; host shell execution is disabled')
         self.close()
         with _LOCK: self.uid=next(_IDS)
