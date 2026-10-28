@@ -10,6 +10,7 @@ from server.tasks import TASKS,make_task,HEADER,csv_text
 from server.grading import grade_bytes,grade_file
 
 ROOT=Path(__file__).resolve().parents[1]
+if not (ROOT/'upstream').exists(): ROOT=Path('/app')
 
 def independent_solution(files):
     names=files['suppliers.txt'].decode().splitlines()
